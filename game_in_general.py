@@ -274,14 +274,14 @@ while running:
         collision_test_rect = pygame.Rect((player.rect.x, player.rect.y - 5), (player_size_x, player_size_y))
         if collision_test_rect.collidelist(
                 [elem.rect if elem.block else pygame.Rect((0, 0), (0, 0)) for elem in tiles_group]) == -1:
-            player.change_image("data/Red_run_up.gif")
+            player.change_image("data/Run_up_upd.gif")
             player.rect.y -= 5
             player.play()
     if elem[pygame.K_DOWN] == 1:
         collision_test_rect = pygame.Rect((player.rect.x, player.rect.y + 5), (player_size_x, player_size_y))
         if collision_test_rect.collidelist(
                 [elem.rect if elem.block else pygame.Rect((0, 0), (0, 0)) for elem in tiles_group]) == -1:
-            player.change_image("data/Red_run_down.gif")
+            player.change_image("data/Run_down_upd.gif")
             player.rect.y += 5
             player.play()
     if elem[pygame.K_LEFT] == 1:
@@ -303,8 +303,6 @@ while running:
     # all_sprites.draw(screen)
     tiles_group.draw(screen)
     player_group.draw(screen)
-    camera = Camera()
-    camera.update(player)
     player.render()
     player.pause()
     pygame.display.flip()
