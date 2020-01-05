@@ -8,7 +8,7 @@ import sys
 FPS = 50
 
 pygame.init()
-size = WIDTH, HEIGHT = 500, 500
+size = WIDTH, HEIGHT = 900, 700
 screen = pygame.display.set_mode(size)
 
 clock = pygame.time.Clock()
@@ -270,32 +270,32 @@ while running:
             key_pressed = False
     elem = pygame.key.get_pressed()
 
-    if elem[pygame.K_UP] == 1:
+    if elem[pygame.K_w] == 1:
         collision_test_rect = pygame.Rect((player.rect.x, player.rect.y - 5), (player_size_x, player_size_y))
         if collision_test_rect.collidelist(
                 [elem.rect if elem.block else pygame.Rect((0, 0), (0, 0)) for elem in tiles_group]) == -1:
-            player.change_image("data/Run_up_upd.gif")
+            player.change_image("data/Cop_run_up.gif")
             player.rect.y -= 5
             player.play()
-    if elem[pygame.K_DOWN] == 1:
+    if elem[pygame.K_s] == 1:
         collision_test_rect = pygame.Rect((player.rect.x, player.rect.y + 5), (player_size_x, player_size_y))
         if collision_test_rect.collidelist(
                 [elem.rect if elem.block else pygame.Rect((0, 0), (0, 0)) for elem in tiles_group]) == -1:
-            player.change_image("data/Run_down_upd.gif")
+            player.change_image("data/Cop_run_down.gif")
             player.rect.y += 5
             player.play()
-    if elem[pygame.K_LEFT] == 1:
+    if elem[pygame.K_a] == 1:
         collision_test_rect = pygame.Rect((player.rect.x - 5, player.rect.y), (player_size_x, player_size_y))
         if collision_test_rect.collidelist(
                 [elem.rect if elem.block else pygame.Rect((0, 0), (0, 0)) for elem in tiles_group]) == -1:
-            player.change_image("data/Red_run_left.gif")
+            player.change_image("data/Cop_run_left.gif")
             player.rect.x -= 5
             player.play()
-    if elem[pygame.K_RIGHT] == 1:
+    if elem[pygame.K_d] == 1:
         collision_test_rect = pygame.Rect((player.rect.x + 5, player.rect.y), (player_size_x, player_size_y))
         if collision_test_rect.collidelist(
                 [elem.rect if elem.block else pygame.Rect((0, 0), (0, 0)) for elem in tiles_group]) == -1:
-            player.change_image("data/Red_run_right.gif")
+            player.change_image("data/Cop_run_right.gif")
             player.rect.x += 5
             player.play()
 
